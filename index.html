@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A14 Redirect Page</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="glow">Redirecting to Lucy...</h1>
+    </div>
+
+    <script>
+        const botUsername = 'A14uploder_bot'
+        
+        function getFileIdFromUrl(){
+            const path = window.location.pathname;
+
+            const fileId = path.replace(/^\/+/, '').split('/')[0];
+            return fileId;
+        }
+        function redirectToA14(){
+            const fileId = getFileIdFromUrl();
+
+            const botUrl = `https://t.me/${botUsername}?start=${fileId}`;
+
+            setTimeout(() => {
+                window.location.href = botUrl;
+            }, 10000);
+        }
+
+        window.addEventListener('load', redirectToA14);
+    </script>
+</body>
+
+</html>
